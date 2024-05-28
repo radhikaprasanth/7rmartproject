@@ -1,19 +1,22 @@
 package testscript;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import pages.LogInPage;
 import pages.ManagePagesPage;
+import utilities.ExcelUtility;
 
 public class ManagePagesTest extends Base {
 	
-	@Test
-  public void verifyWhetherTheUserIsAbleToDeleteAPage() 
+	@Test(retryAnalyzer=retry.Retry.class)
+  public void verifyWhetherTheUserIsAbleToDeleteAPage() throws IOException 
   {
 	  
-	  String username="admin";
-	  String password="admin";
+	  String username=ExcelUtility.getStringData(1, 0, "LoginPage");
+	  String password=ExcelUtility.getStringData(1, 1, "LoginPage");
 	  LogInPage loginpage=new LogInPage(driver);
 	  loginpage.enterUsernameOnUserNameField(username);
 	  loginpage.enterPasswordOnPasswordField(password);

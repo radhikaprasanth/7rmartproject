@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,7 +17,7 @@ public class AdminUsersPage {
 			PageFactory.initElements(driver , this);
 			
 		}
-	@FindBy(xpath="//p[text()='Admin Users']")private WebElement adminuserslink;
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin']")private WebElement adminuserslink;
 	@FindBy(xpath="//a[@onclick='click_button(1)']")private WebElement newbuttonclick;
 	@FindBy(xpath="//input[@name='username']")private WebElement usernamefield;
 	@FindBy(xpath="//input[@name='password']")private WebElement passwordfield;
@@ -26,7 +27,9 @@ public class AdminUsersPage {
 	
 	public void verifyUserIsAbleToClickOnAdminusers()
 	{
-		adminuserslink.click();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();",adminuserslink);
+		
 	}
 	public void verifyUserIsAbleToClickOnNewButton()
 	{
@@ -45,6 +48,7 @@ public class AdminUsersPage {
 	public void verifyWhtherUserIsAbleToChooseTheUserType(String text)
 	{
 		Select selects=new Select(usertypefield);
+		//selects.selectByIndex(num);
 		selects.selectByVisibleText(text);
 	}
 	
@@ -57,6 +61,7 @@ public class AdminUsersPage {
 		return alerttext.isDisplayed();
 		
 	}
+	
 	
 	
 	

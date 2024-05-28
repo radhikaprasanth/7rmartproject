@@ -6,6 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+import utilities.WaitUtility;
+
 public class ManageLocationsPage {
 
 	WebDriver driver;
@@ -27,6 +30,8 @@ public class ManageLocationsPage {
 	
 	public void verifyUserIsAbleToClickOnManageLocation()
 	{
+		WaitUtility waitutility=new WaitUtility();
+		waitutility.waitForElement(driver, managelocationlink);
 		managelocationlink.click();
 	}
 	public void verifyUserIsAbleToClickOnNewButton()
@@ -42,8 +47,8 @@ public class ManageLocationsPage {
 	}
 	public void verifyUserIsAbleToSelectState()
 	{
-		Select selects=new Select(selectstatefield);
-		selects.selectByIndex(5);
+		PageUtility pageutility=new PageUtility();
+		pageutility.selectValueUsingSelectByIndex(selectstatefield, 5);
 	}
 	
 	public void verifyUserIsAbleToEnterLocation(String location)
@@ -51,9 +56,9 @@ public class ManageLocationsPage {
 		locationfield.sendKeys(location);
 	}
 	
-	public void verifyUserIsAbleToEnterDeliveryCharge(int deliverycharges)
+	public void verifyUserIsAbleToEnterDeliveryCharge(String deliverycharges)
 	{
-		deliverychargefield.sendKeys(String.valueOf(deliverycharges));
+		deliverychargefield.sendKeys(deliverycharges);
 		
 	}
 	public void verifyUserIsAbleToSaveTheDatas()
@@ -63,6 +68,8 @@ public class ManageLocationsPage {
 	
 	public boolean isAlertDisplayed()
 	{
+		WaitUtility waitutility=new WaitUtility();
+		waitutility.waitForElement(driver, alerttext);
 		return alerttext.isDisplayed();
 		
 	}
