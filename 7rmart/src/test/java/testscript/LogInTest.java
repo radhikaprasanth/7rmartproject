@@ -1,11 +1,11 @@
 package testscript;
 import java.io.IOException;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.By;
+//import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import constants.Constants;
+//import constants.Constants;
 import pages.LogInPage;
 import utilities.ExcelUtility;
 

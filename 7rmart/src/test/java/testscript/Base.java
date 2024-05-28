@@ -12,8 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-
+//import org.testng.annotations.Test;
 import utilities.ScreenshotUtility;
 import utilities.WaitUtility;
 public class Base {
